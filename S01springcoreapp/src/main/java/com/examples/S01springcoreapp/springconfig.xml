@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+ <bean name="emp1" class="com.examples.S01springcoreapp.Employee">
+  	<property name="id">
+  		<value>01</value>
+  	</property>
+  	<property name="name">
+  		<value>John</value>
+  	</property>
+ </bean>
+ 
+ <bean name="emp2" class="com.examples.S01springcoreapp.Employee">
+ 	<property name="id" value="02"/>
+ 	<property name="name" value="Max"/>
+ </bean>
+ 
+ <bean name="emp3" class="com.examples.S01springcoreapp.Employee" p:id="3" p:name="Kevin"/>
+ 
+ <bean name="emp4" class="com.examples.S01springcoreapp.Employee" p:id="4" p:name="Smith">
+ 	<property name="departments">
+ 		<list>
+ 			<value>HR</value>
+ 			<value>Admin</value>
+ 			<value>Sales</value>
+ 		</list>
+ 	</property>
+ </bean>
+ 
+ <bean  name="emp5" class="com.examples.S01springcoreapp.Employee" p:id="5" p:name="Johnathan">
+ 	<property name="products">
+ 		<map>
+ 			<entry key="1" value="Laptop"/>
+ 			<entry key="2" value="TV"/>
+ 			<entry key="3" value="CD"/>
+ 			
+ 		</map>
+ 	</property>
+ </bean>
+ 
+ <bean name="emp6" class="com.examples.S01springcoreapp.Employee" p:id="6" p:name="Any William">
+ 	<property name="countriesLanguges">
+ 		<props>
+ 			<prop key="IND">Multi-Lang</prop>
+ 			<prop key="USA">American-Eng</prop>
+ 			<prop key="UK">European-Eng</prop>
+ 		</props>
+ 	</property>
+ </bean>
+ 
+ <bean name="address1" class="com.examples.S01springcoreapp.Address" p:city="Kathmandu" p:state="nepal" p:pincode="00011000"/>
+ 
+ <bean name="emp7" class="com.examples.S01springcoreapp.Employee" p:id="7" p:name="Michael">
+ 	<property name="address">
+ 		<ref bean="address1"/>
+ 	</property>
+ </bean>
+</beans>
