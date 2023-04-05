@@ -6,6 +6,7 @@ public class Address {
 	public String toString() {
 		return "Address [city=" + city + ", state=" + state + ", pincode=" + pincode + "]";
 	}
+	
 	private String city;
 	private String state;
 	private String pincode;

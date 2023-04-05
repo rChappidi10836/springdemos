@@ -28,6 +28,8 @@
 
 	<context:component-scan
 		base-package="com.examples.S08SpringMVCORM.Controller" />
+	<context:component-scan
+		base-package="com.examples.S08SpringMVCORM.service" />
 
 
 
@@ -50,6 +52,7 @@
 
 	<context:component-scan
 		base-package="com.examples.S08SpringMVCORM.dao" />
+		
 
 	<bean name="datasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
