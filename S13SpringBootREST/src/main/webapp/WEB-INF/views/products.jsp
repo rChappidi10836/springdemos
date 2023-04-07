@@ -15,19 +15,18 @@
 		<pre>
 		Name     	   :<input type="text" name="name"/><br>
 		Description    :<input type="text" name="desc"/><br>
-		Price 		   :<input type="password" name="price"/><br>
+		Price 		   :<input type="text" name="price"/><br>
 		<input type="submit" name="Add Product"/>
 		</pre>
-		
-		
 	</form>
 
-	<p>${message}</p>
 	
 	<ul>
 		<c:forEach items="${products}" var="product">
-			<li>${product.id}  | ${product.name} | ${product.description} | ${product.price}</li>
+			<li>${product.id}  | ${product.name} | ${product.desc} | ${product.price}</li>
 		</c:forEach>
 	</ul>
+	
+	
 </body>
 </html>

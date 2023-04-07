@@ -13,4 +13,5 @@ public interface ProductRepository extends CrudRepository<Product, Integer>{
 	List<Product> findByName(String name);// CUSTOM FINDERS: no need to define Spring will auto-matically define by naming conventions
 	
 	List<Product> findByNameAndPrice(String name, Double price);// we can even combine multiple findings
+	
 }

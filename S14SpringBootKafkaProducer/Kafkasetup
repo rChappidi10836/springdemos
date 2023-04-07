@@ -1,0 +1,60 @@
+# Download Apache kafka
+
+# go to bin folder - if you are in linux or mac
+
+# go to bin/Windows folder - if you are in windows
+
+ 
+
+# start zookeeper
+
+./zookeeper-server-start.sh ../config/zookeeper.properties
+
+ 
+
+# start kafka
+
+./kafka-server-start.sh ../config/server.properties
+
+ 
+
+# command to list all topics 
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+ 
+
+ 
+
+# command to create a new topic
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --topic myfirsttopic
+
+kafka-topics.bat --bootstrap-server localhost:9092 --create --partitions 1 --topic myfirsttopic
+
+ 
+
+# command to run console consumer
+
+# run this in a separate terminal
+
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic myfirsttopic
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic myfirsttopic
+ 
+
+# command to run console producer
+
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic myfirsttopic
+
+kafka-console-producer.bat --bootstrap-server localhost:9092 --topic myfirsttopic
+
+ 
+
+# Run Java Producer
+
+http://localhost:8091/send/Raj
+http://localhost:8091/send/Luffy
+http://localhost:8091/send/Sabo
