@@ -1,21 +1,27 @@
 package com.example.test.entity;
 
-import java.sql.Blob;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="product")
 public class Product {
  
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
      
-    @Column(name="pic")
-    private Blob blob;
- 
-    // getters and setters
+    private String name;
     
+    private String image;
+    
+    private String category;
+    
+    private int price;
+
 	public int getId() {
 		return id;
 	}
@@ -24,15 +30,46 @@ public class Product {
 		this.id = id;
 	}
 
-	public Blob getBlob() {
-		return blob;
+	public String getName() {
+		return name;
 	}
 
-	public void setBlob(Blob blob) {
-		this.blob = blob;
+	public void setName(String name) {
+		this.name = name;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", image=" + image + ", category=" + category + ", price="
+				+ price + "]";
+	}
+    
+    
 	
-	}
+}
     
 

@@ -17,12 +17,11 @@ import com.example.test.repository.ProductRepository;
 public class ProductController {
     
     @Autowired
-    private ProductRepository productRepository;
-
+    private ProductRepository repo;
+    
     @RequestMapping("/product")
     public String getProduct(Model model) {
-        Product product = productRepository.findById(1).get();
-        model.addAttribute("product", product);
+    	model.addAttribute("products",repo.findAll());
         return "product";
     }
 }
