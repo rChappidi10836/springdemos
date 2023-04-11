@@ -9,5 +9,8 @@ import com.sportshoes.entity.Admin;
 public interface AdminRepository extends JpaRepository<Admin, Integer>{
 	
 	Admin findByUsernameAndPassword(String username, String password);
+
+	
+	 
 	 
 }

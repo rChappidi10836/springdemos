@@ -30,7 +30,7 @@
 </style>
 
 <body>
-	<img src="https://www.bing.com/images/blob?bcid=S8d4RPcqVHYFgA" alt="SUCCESS">
+	<img src="https://edulinksolutions.com/wp-content/uploads/2017/06/Comply_Brand_Symbol_Green_200px.png" alt="SUCCESS">
 	<P>ORDER CONFIRMEND</P>
 	<a href="/sportyshoes.com">Go To Home</a>
 </body>

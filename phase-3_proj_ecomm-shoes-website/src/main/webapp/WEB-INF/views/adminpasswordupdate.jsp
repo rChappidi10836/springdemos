@@ -1,13 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
 <!-- MDB -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js">
@@ -27,8 +18,7 @@
 	rel="stylesheet" />
 
 <body>
-
-
+	
 	<header style="display: flex; justify-content: center; margin: 2%">
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light"
@@ -60,55 +50,38 @@
 			</div>
 		</nav>
 		<!-- Navbar -->
+		
+		
 	</header>
+		
+		<div class="container">
+		<H3>Admin Login</H3>
+		<br>
+		<br>
+		<form action="/adminupdate" method="GET">
+			<div class="form-group">
+				<!-- Email input -->
+				<div class="form-outline mb-4">
+					<input type="password" name="oldpwd"
+						placeholder="Enter OldPassword here" required />
+				</div>
 
-	<input type="text" id="searchInput" placeholder="Enter Required Search..." style="display: block; margin: 0 auto;">
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<input type="password" name="newpwd"
+						placeholder="Enter NewPassword here" required />
+				</div>
 
-	
+				${msg}
 
-	<table class="table align-middle mb-0 bg-white">
-		<thead class="bg-light">
-			<tr>
-				<th>user id</th>
-				<th>Name</th>
-				<th>Phone Number</th>
-				<th>Address</th>
-			</tr>
-		</thead>
-		<c:forEach items="${users}" var="user">
-			<tr>
-				<td>${user.uid}</td>
-				<td>${user.name}</td>
-				<td>${user.phno}</td>
-				<td>${user.address}</td>
-			</tr>
-		</c:forEach>
-	</table>
-
+				<!-- Submit button -->
+				<div class="form-outline mb-4 btn-signin">
+					<button type="submit" class="btn btn-primary btn-block">Update</button>
+				</div>
+			</div>
+		</form>
+	</div>
+		
 </body>
-<script>
-		const searchInput = document.getElementById("searchInput");
-		const tableRows = document.getElementsByTagName("tr");
 
-		// Add event listener for input changes
-		searchInput.addEventListener("input", function() {
-			const filterText = searchInput.value.toLowerCase();
-			for (let i = 1; i < tableRows.length; i++) { // Start at 1 to skip table header row
-				const tableData = tableRows[i].getElementsByTagName("td");
-				let found = false;
-				for (let j = 0; j < tableData.length; j++) {
-					if (tableData[j].textContent.toLowerCase().includes(
-							filterText)) {
-						found = true;
-						break;
-					}
-				}
-				if (found) {
-					tableRows[i].style.display = "";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		});
-	</script>
 </html>

@@ -65,10 +65,10 @@
 <body>
 
 	<div class="container">
-		<H3>User Login</H3>
+		<H3>User Registration</H3>
 		<br>
 		<br>
-		<form action="/userauthn" method="GET">
+		<form action="/usereg" method="GET">
 			<div class="form-group">
 				<!-- Email input -->
 				<div class="form-outline mb-4">
@@ -82,17 +82,21 @@
 						placeholder="Enter password here" required />
 				</div>
 
-				<p>${msg}</p>
-
-				<!-- Submit button -->
-				<div class="form-outline mb-4 btn-signin">
-					<button type="submit" class="btn btn-primary btn-block">Sign
-						in</button>
+				<div class="form-outline mb-4">
+					<input type="number" name="phno"
+						placeholder="Enter phone number here" required />
 				</div>
 				
-				<div class="form-outline mb-4 btn-signin">
-					<p>Don't Have account?<a href="/useregform" >Register here</a></p>
+				<div class="form-outline mb-4">
+					<input type="text" name="address"
+						placeholder="Enter address here" required />
 				</div>
+				
+				<!-- Submit button -->
+				<div class="form-outline mb-4 btn-signin">
+					<button type="submit" class="btn btn-primary btn-block">Register</button>
+				</div>
+				
 			</div>
 		</form>
 	</div>

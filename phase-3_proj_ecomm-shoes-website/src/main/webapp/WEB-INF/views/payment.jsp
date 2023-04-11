@@ -60,7 +60,7 @@
 java.util.Date currentDate = new java.util.Date();
 
 //Create a SimpleDateFormat instance with the desired date format
-SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyy-MM-dd");
 
 //Add 5 days to the current date
 Calendar calendar = Calendar.getInstance();

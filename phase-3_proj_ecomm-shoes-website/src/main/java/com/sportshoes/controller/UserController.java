@@ -22,26 +22,39 @@ public class UserController {
 	
 	@GetMapping("/userauthn")
 	public String userauthen(@RequestParam String username, @RequestParam String password,Users user,Model model,HttpServletRequest request,HttpServletResponse response) {
-		HttpSession session = request.getSession();
+		HttpSession usession = request.getSession();
 		if(urepo.findBynameAndPwd(username, password) != null) {
-			session.setAttribute("username", username);
-			session.setAttribute("password", password);
-			session.setAttribute("uid", urepo.findBynameAndPwd(username, password).getUid());
+			usession.setAttribute("username", username);
+			usession.setAttribute("password", password);
+			usession.setAttribute("uid", urepo.findBynameAndPwd(username, password).getUid());
 			return "redirect:/sportyshoes.com";
 		}else {
 			model.addAttribute("msg", "enter correct login credientials");
 			return "userlogin";
 		}
-		
-		
 	
 	}
+	
+	@GetMapping("/useregform")
+	public String useregistrationform() {
+		return "useregform";
+		
+	}
+	
+	@GetMapping("/usereg")
+	public String userregister(Model model,@RequestParam String username, @RequestParam String password,@RequestParam String phno,@RequestParam String address) {
+		Users u = new Users(username,password,Long.parseLong(phno),address);
+		urepo.save(u);
+		model.addAttribute("msg", "REGISTRATION COMPLETED");
+		return "userlogin";
+	}
+	
 	@GetMapping("/userlogout")
-	public String userlogout(Model model,HttpSession session) {
-		session.removeAttribute("username");
-		session.removeAttribute("password");
-		if(session != null) {
-			session.invalidate();
+	public String userlogout(Model model,HttpSession s) {
+		s.removeAttribute("username");
+		s.removeAttribute("password");
+		if(s != null) {
+			s.invalidate();
 		}
 		model.addAttribute("msg", "Logged out =>To use website login again");
 		return "userlogin";

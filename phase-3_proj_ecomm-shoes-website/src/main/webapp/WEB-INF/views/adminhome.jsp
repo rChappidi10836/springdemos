@@ -35,6 +35,8 @@
 						<li class="nav-item active"><a class="nav-link"
 							aria-current="page" href="/adminhome"
 							style="font-weight: bold; color: white;">Admin_Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="/apwdupdate"
+							style="font-weight: bold; color: white;">Password_Update</a></li>
 						<li class="nav-item"><a class="nav-link" href="/aproducts"
 							style="font-weight: bold; color: white;">Manage_productS</a></li>
 						<li class="nav-item"><a class="nav-link" href="/ausers"
@@ -48,7 +50,24 @@
 			</div>
 		</nav>
 		<!-- Navbar -->
+		
+		
 	</header>
-
+	<div class="box">
+	<P>WELCOME TO ADMIN HOME</P><br>
+	click on white text in header to get corresponding option
+	</div>
 </body>
+<style>
+	.box{
+	display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 80vh;
+	}
+		.box p{
+			font-size: 30px;
+			
+		}
+	</style>
 </html>

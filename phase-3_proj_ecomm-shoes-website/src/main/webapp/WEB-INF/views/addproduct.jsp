@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,36 +69,53 @@
 <body>
 
 	<div class="container">
-		<H3>User Login</H3>
-		<br>
-		<br>
-		<form action="/userauthn" method="GET">
+		<H3>Adding Product</H3>
+		<br> <br>
+		<form action="/addproduct" method="GET">
 			<div class="form-group">
 				<!-- Email input -->
 				<div class="form-outline mb-4">
-					<input type="text" name="username"
-						placeholder="Enter username here" required />
+					<input type="text" name="name" placeholder="Enter Name here"
+						required />
 				</div>
 
 				<!-- Password input -->
 				<div class="form-outline mb-4">
-					<input type="password" name="password"
-						placeholder="Enter password here" required />
+					<input type="url" name="image" placeholder="Enter working Image URL here"
+						required />
 				</div>
 
-				<p>${msg}</p>
+				<div class="form-outline mb-4">
+					<select class="form-select" id="category-select" name="category">
+						<option value="" disabled selected>--Select Category</option>
+						<option value="Gym">Gym</option>
+						<option value="Running">Running</option>
+						<option value="Formal">Formal</option>
+					</select>
+				</div>
+
+				<div class="form-outline mb-4">
+					<input type="text" name="price" placeholder="Enter Price here"
+						required />
+				</div>
+
+				<div class="form-outline mb-4">
+					<select class="form-select" id="category-select" name="status">
+						<option value="" disabled selected>--Select Status</option>
+						<option value="available">Available</option>
+						<option value="out of stock">Out of Stock</option>
+					</select>
+				</div>
+
+
 
 				<!-- Submit button -->
 				<div class="form-outline mb-4 btn-signin">
-					<button type="submit" class="btn btn-primary btn-block">Sign
-						in</button>
-				</div>
-				
-				<div class="form-outline mb-4 btn-signin">
-					<p>Don't Have account?<a href="/useregform" >Register here</a></p>
+					<button type="submit" class="btn btn-primary btn-block">ADD</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </body>
+
 </html>

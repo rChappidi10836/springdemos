@@ -81,9 +81,12 @@
 					<img alt="Image " src="${x.image}">
 					<div class="product-info">
 						<h3>${x.name}</h3>
-						<p>${x.category}</p>
+						<p>${x.category}</p> 
 						<p>Price: ${x.price}</p>
+						<p style="font-size: 16px; font-weight: bold; color: ${x.status == 'available' ? 'green' : 'red'}">Status: ${x.status}</p>
+						<c:if test="${(x.status).equals('available')}">
 						<a href="/payment/${x.id}"><button type="submit">Buy</button></a>
+						</c:if>
 					</div>
 				</div>
 			</c:forEach>

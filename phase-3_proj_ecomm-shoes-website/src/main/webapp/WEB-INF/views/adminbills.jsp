@@ -2,12 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
 <!-- MDB -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js">
@@ -27,7 +22,6 @@
 	rel="stylesheet" />
 
 <body>
-
 
 	<header style="display: flex; justify-content: center; margin: 2%">
 		<!-- Navbar -->
@@ -62,53 +56,72 @@
 		<!-- Navbar -->
 	</header>
 
-	<input type="text" id="searchInput" placeholder="Enter Required Search..." style="display: block; margin: 0 auto;">
-
-	
+	<div class="row my-4" style="margin-left:20%">
+		<div class="col-md-4">
+			<select class="form-select" id="category-select">
+				<option value="">All Categories</option>
+				<option value="gym">Gym</option>
+				<option value="running">Running</option>
+				<option value="formal">Formal</option>
+			</select>
+		</div>
+		<div class="col-md-4" >
+			<input type="date" class="form-control" id="date-input">
+		</div>
+		<div class="col-md-4">
+			<button type="button" class="btn btn-primary" id="search-button">Search</button>
+		</div>
+	</div>
 
 	<table class="table align-middle mb-0 bg-white">
 		<thead class="bg-light">
 			<tr>
-				<th>user id</th>
-				<th>Name</th>
-				<th>Phone Number</th>
-				<th>Address</th>
+				<th>bill id</th>
+				<th>User Name</th>
+				<th>Product Name</th>
+				<th>Category</th>
+				<th>Ordered Date</th>
+				<th>Paid Amount</th>
 			</tr>
 		</thead>
-		<c:forEach items="${users}" var="user">
+		<c:forEach items="${abills}" var="bill">
 			<tr>
-				<td>${user.uid}</td>
-				<td>${user.name}</td>
-				<td>${user.phno}</td>
-				<td>${user.address}</td>
+				<td>${bill[0]}</td>
+				<td>${bill[1]}</td>
+				<td>${bill[2]}</td>
+				<td>${bill[3]}</td>
+				<td>${bill[4]}</td>
+				<td>${bill[5]}</td>
+
 			</tr>
 		</c:forEach>
 	</table>
-
 </body>
 <script>
-		const searchInput = document.getElementById("searchInput");
-		const tableRows = document.getElementsByTagName("tr");
+  document.getElementById("search-button").addEventListener("click", function() {
+    var category = document.getElementById("category-select").value;
+    var date = document.getElementById("date-input").value;
+    
+    var rows = document.getElementsByTagName("tr");
+    for (var i = 0; i < rows.length; i++) {
+      var cells = rows[i].getElementsByTagName("td");
+      if (cells.length > 0) {
+        var categoryMatch = false;
+        var dateMatch = false;
+        if (category == "" || cells[3].innerHTML.toLowerCase() == category) {
+          categoryMatch = true;
+        }
+        if (date == "" || cells[4].innerHTML == date) {
+          dateMatch = true;
+        }
+        if (categoryMatch && dateMatch) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  });
+</script>
 
-		// Add event listener for input changes
-		searchInput.addEventListener("input", function() {
-			const filterText = searchInput.value.toLowerCase();
-			for (let i = 1; i < tableRows.length; i++) { // Start at 1 to skip table header row
-				const tableData = tableRows[i].getElementsByTagName("td");
-				let found = false;
-				for (let j = 0; j < tableData.length; j++) {
-					if (tableData[j].textContent.toLowerCase().includes(
-							filterText)) {
-						found = true;
-						break;
-					}
-				}
-				if (found) {
-					tableRows[i].style.display = "";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		});
-	</script>
 </html>

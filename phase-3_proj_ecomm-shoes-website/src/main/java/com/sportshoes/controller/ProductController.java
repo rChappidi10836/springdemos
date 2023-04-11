@@ -33,7 +33,7 @@ public class ProductController {
     private UserRepository urepo;
     
     @RequestMapping("/sportyshoes.com")
-    public String getProduct(Model model,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String getProduct(Model model,HttpServletRequest request) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if(session.getAttribute("username")!=null) {
     	model.addAttribute("products",repo.findAll());

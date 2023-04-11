@@ -23,6 +23,33 @@ public class Product {
     private String category;
     
     private int price;
+    
+    private String status;
+    
+    public Product() {
+    }
+    
+    
+    
+	 public Product(int id, String name, String image, String category, int price, String status) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.category = category;
+		this.price = price;
+		this.status = status;
+	}
+
+
+
+	public Product(String name, String image, String category, int price, String status) {
+		this.name = name;
+		this.image = image;
+		this.category = category;
+		this.price = price;
+		this.status = status;
+	}
 
 	public int getId() {
 		return id;
@@ -62,6 +89,14 @@ public class Product {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override

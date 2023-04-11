@@ -21,6 +21,32 @@ public class Users {
 	Long phno;
 	
 	String address;
+	
+	public Users() {
+	}
+	
+	
+	
+	public Users(int uid, String name, String pwd, Long phno, String address) {
+		super();
+		this.uid = uid;
+		this.name = name;
+		this.pwd = pwd;
+		this.phno = phno;
+		this.address = address;
+	}
+	
+	
+
+	public Users(String name, String pwd, Long phno, String address) {
+		super();
+		this.name = name;
+		this.pwd = pwd;
+		this.phno = phno;
+		this.address = address;
+	}
+
+
 
 	public int getUid() {
 		return uid;

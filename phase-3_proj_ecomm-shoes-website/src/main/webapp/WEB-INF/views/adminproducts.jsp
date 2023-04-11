@@ -4,10 +4,6 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
 <!-- MDB -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js">
@@ -27,7 +23,6 @@
 	rel="stylesheet" />
 
 <body>
-
 
 	<header style="display: flex; justify-content: center; margin: 2%">
 		<!-- Navbar -->
@@ -62,53 +57,44 @@
 		<!-- Navbar -->
 	</header>
 
-	<input type="text" id="searchInput" placeholder="Enter Required Search..." style="display: block; margin: 0 auto;">
+	<div class="row my-4" style="margin-left: 43%">
+		${msg}
+		<div class="col-md-4">
+			<a href="/addproductform"><button type="button"
+					class="btn btn-primary" id="search-button">ADD a Product</button></a>
+		</div>
 
-	
+	</div>
 
-	<table class="table align-middle mb-0 bg-white">
+	<table class="table align-middle mb-0 bg-white"
+		style="table-layout: fixed; width: 100%;">
 		<thead class="bg-light">
 			<tr>
-				<th>user id</th>
+				<th>Product id</th>
 				<th>Name</th>
-				<th>Phone Number</th>
-				<th>Address</th>
+				<th>Image</th>
+				<th>Category</th>
+				<th>Price</th>
+				<th>Status</th>
+				<th></th>
 			</tr>
 		</thead>
-		<c:forEach items="${users}" var="user">
+		<c:forEach items="${products}" var="product">
 			<tr>
-				<td>${user.uid}</td>
-				<td>${user.name}</td>
-				<td>${user.phno}</td>
-				<td>${user.address}</td>
+				<td>${product.id}</td>
+				<td>${product.name}</td>
+				<td><img src="${product.image}" alt="${product.name} image"
+					style="display: block; width: 75%; height: auto;"></td>
+				<td>${product.category}</td>
+				<td>${product.price}</td>
+				<td
+					style="font-size: 16px; font-weight: bold; color: ${product.status == 'available' ? 'green' : 'red'}">${product.status}</td>
+				<td><div class="col-md-4">
+						<a href="/editproductform/${product.id}"><button type="button"
+								class="btn btn-primary" id="search-button">EDIT Info</button></a>
+					</div></td>
 			</tr>
 		</c:forEach>
 	</table>
-
 </body>
-<script>
-		const searchInput = document.getElementById("searchInput");
-		const tableRows = document.getElementsByTagName("tr");
-
-		// Add event listener for input changes
-		searchInput.addEventListener("input", function() {
-			const filterText = searchInput.value.toLowerCase();
-			for (let i = 1; i < tableRows.length; i++) { // Start at 1 to skip table header row
-				const tableData = tableRows[i].getElementsByTagName("td");
-				let found = false;
-				for (let j = 0; j < tableData.length; j++) {
-					if (tableData[j].textContent.toLowerCase().includes(
-							filterText)) {
-						found = true;
-						break;
-					}
-				}
-				if (found) {
-					tableRows[i].style.display = "";
-				} else {
-					tableRows[i].style.display = "none";
-				}
-			}
-		});
-	</script>
 </html>
